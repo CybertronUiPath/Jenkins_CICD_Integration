@@ -108,7 +108,7 @@
           <InArgument x:TypeArguments="x:String">[Out_EndResult]</InArgument>
         </uta:VerifyExpressionWithOperator.FirstExpression>
         <uta:VerifyExpressionWithOperator.SecondExpression>
-          <InArgument x:TypeArguments="x:String">["Success"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["Failure"]</InArgument>
         </uta:VerifyExpressionWithOperator.SecondExpression>
       </uta:VerifyExpressionWithOperator>
     </Sequence>

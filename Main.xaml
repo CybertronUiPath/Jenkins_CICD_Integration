@@ -80,7 +80,7 @@
         <OutArgument x:TypeArguments="x:String">[EndResult]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">Success</InArgument>
+        <InArgument x:TypeArguments="x:String">Succes</InArgument>
       </Assign.Value>
     </Assign>
   </Sequence>

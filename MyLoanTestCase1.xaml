@@ -136,7 +136,7 @@
           <InArgument x:TypeArguments="x:Int32">[cint(LoanApr)]</InArgument>
         </uta:VerifyExpressionWithOperator.FirstExpression>
         <uta:VerifyExpressionWithOperator.SecondExpression>
-          <InArgument x:TypeArguments="x:Int32">[6]</InArgument>
+          <InArgument x:TypeArguments="x:Int32">[5]</InArgument>
         </uta:VerifyExpressionWithOperator.SecondExpression>
       </uta:VerifyExpressionWithOperator>
     </Sequence>

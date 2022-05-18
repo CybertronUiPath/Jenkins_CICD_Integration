@@ -44,8 +44,15 @@
       {
         "editingStatus": "Publishable",
         "testCaseId": "cba0bdac-b5d5-4426-85ab-bfbc389a21b1",
+        "dataVariationFilePath": ".variations\\UiBank_LoanData_Sheet1.json",
         "testCaseType": "TestCase",
         "fileName": "MyLoanTestCase1.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "cc73d72e-a71f-40fa-9b28-014f7e533a7f",
+        "testCaseType": "TestCase",
+        "fileName": "MyLoanTestCase2.xaml"
       }
     ],
     "modernBehavior": false

@@ -1,14 +1,39 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.LoanEmail="testdummy@fakemail.com" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="EndResult" Type="OutArgument(x:String)" />
+    <x:Property Name="LoanApr" Type="OutArgument(x:String)" />
+    <x:Property Name="LoanEmail" Type="InArgument(x:String)" />
+    <x:Property Name="LoanAmount" Type="InArgument(x:String)" />
+    <x:Property Name="LoanTerm" Type="InArgument(x:String)" />
+    <x:Property Name="Salary" Type="InArgument(x:String)" />
+    <x:Property Name="ApplAge" Type="InArgument(x:String)" />
   </x:Members>
+  <this:Main.LoanAmount>
+    <InArgument x:TypeArguments="x:String">
+      <Literal x:TypeArguments="x:String">25000</Literal>
+    </InArgument>
+  </this:Main.LoanAmount>
+  <this:Main.LoanTerm>
+    <InArgument x:TypeArguments="x:String">
+      <Literal x:TypeArguments="x:String">3</Literal>
+    </InArgument>
+  </this:Main.LoanTerm>
+  <this:Main.Salary>
+    <InArgument x:TypeArguments="x:String">
+      <Literal x:TypeArguments="x:String">60000</Literal>
+    </InArgument>
+  </this:Main.Salary>
+  <this:Main.ApplAge>
+    <InArgument x:TypeArguments="x:String">
+      <Literal x:TypeArguments="x:String">28</Literal>
+    </InArgument>
+  </this:Main.ApplAge>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>901,827</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>888,2594</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="46">
+    <scg:List x:TypeArguments="x:String" Capacity="52">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -34,10 +59,18 @@
       <x:String>System.Activities.DynamicUpdate</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Testing.Activities.TestData</x:String>
+      <x:String>UiPath.Testing.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="27">
+    <sco:Collection x:TypeArguments="AssemblyReference">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -64,24 +97,193 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-    </scg:List>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+    </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Jenkins Template" sap:VirtualizedContainerService.HintSize="376,449" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Jenkins Template" sap:VirtualizedContainerService.HintSize="881,2529" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Hello Jenkins. How are you?&quot;]" />
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Another hello from UiPath. Please click OK&quot;]" />
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;Success Jenkins!&quot;]" />
-    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[EndResult]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">Success</InArgument>
-      </Assign.Value>
-    </Assign>
+    <Sequence DisplayName="Web" sap:VirtualizedContainerService.HintSize="839,2437" sap2010:WorkflowViewState.IdRef="Sequence_5">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <uix:NApplicationCard AttachMode="ByInstance" CloseMode="IfOpenedByAppBrowser" DisplayName="Use Browser Chrome: UiBank" sap:VirtualizedContainerService.HintSize="797,1964" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="IfNotOpen" Version="V1">
+        <uix:NApplicationCard.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="443,1748" sap2010:WorkflowViewState.IdRef="Sequence_9">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="401,1654" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Products" sap:VirtualizedContainerService.HintSize="359,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition OffsetX="64" OffsetY="17" Position="TopLeft" />
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a473c7aa-6f33-4ed5-b5ee-f8d41d2cd8a1" InformativeScreenshot="d31dac177988968db922cb489e6896b1" Selector="&lt;webctrl aria-role='button' tag='A' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:Click.Target>
+                </ui:Click>
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Loans" sap:VirtualizedContainerService.HintSize="359,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition OffsetX="58" OffsetY="9" Position="TopLeft" />
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="1eac2b7b-7f62-4a0b-9071-00633d383a85" InformativeScreenshot="e0388add33f2f348cc113180f4dd69d4" Selector="&lt;webctrl aaname='Loans' tag='A' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:Click.Target>
+                </ui:Click>
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Apply for Loan" sap:VirtualizedContainerService.HintSize="359,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition OffsetX="80" OffsetY="21" Position="TopLeft" />
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="aa513878-070b-4e39-80c1-4f31cf120bb1" InformativeScreenshot="32c4d5f568b1eb39f4df59ae87673a8d" Selector="&lt;webctrl aaname='Apply For A Loan' tag='BUTTON' type='submit' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:Click.Target>
+                </ui:Click>
+                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into Applicant Email" EmptyField="False" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="True" Text="[LoanEmail]">
+                  <ui:TypeInto.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="02bb37eb-c5f8-4940-829a-995070970601" InformativeScreenshot="7cdbab2553bbb66766873f618f9e850c" Selector="&lt;webctrl tag='INPUT' type='email' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:TypeInto.Target>
+                </ui:TypeInto>
+                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into Loan Amount" EmptyField="False" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" SendWindowMessages="False" SimulateType="True" Text="[LoanAmount]">
+                  <ui:TypeInto.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a70b7f13-ebb9-46c4-878a-5b675e0e702e" InformativeScreenshot="d76e0beb54eae32c2f3b220783bdc8ad" Selector="&lt;webctrl id='amount' tag='INPUT' type='number' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:TypeInto.Target>
+                </ui:TypeInto>
+                <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item Loan Term" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="[LoanTerm]">
+                  <ui:SelectItem.Items>
+                    <scg:List x:TypeArguments="x:String" Capacity="4">
+                      <x:String>1</x:String>
+                      <x:String>3</x:String>
+                      <x:String>5</x:String>
+                      <x:String>10</x:String>
+                    </scg:List>
+                  </ui:SelectItem.Items>
+                  <ui:SelectItem.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="18fd3c1d-ae33-4b77-9842-94ca9683794e" InformativeScreenshot="f5b207a07940ad747fbcd2c275536b01" Selector="&lt;webctrl tag='SELECT' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:SelectItem.Target>
+                </ui:SelectItem>
+                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into Applicant Income" EmptyField="False" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="True" Text="[Salary]">
+                  <ui:TypeInto.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ddc60c50-00a2-4b90-8f1f-a68b4b050073" InformativeScreenshot="0fefaaed38c59fb8c0d893be09b7db6e" Selector="&lt;webctrl id='income' tag='INPUT' type='number' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:TypeInto.Target>
+                </ui:TypeInto>
+                <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" DisplayName="Type Into Applicant Age" EmptyField="False" sap:VirtualizedContainerService.HintSize="359,134" sap2010:WorkflowViewState.IdRef="TypeInto_4" SendWindowMessages="False" SimulateType="True" Text="[ApplAge]">
+                  <ui:TypeInto.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="91ff95d9-7cd8-4676-901a-16005d2b32f7" InformativeScreenshot="36b101fda8376f3f06e04df7098fefa3" Selector="&lt;webctrl id='age' tag='INPUT' type='number' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:TypeInto.Target>
+                </ui:TypeInto>
+                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Submit" sap:VirtualizedContainerService.HintSize="359,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                  <ui:Click.CursorPosition>
+                    <ui:CursorPosition OffsetX="150" OffsetY="30" Position="TopLeft" />
+                  </ui:Click.CursorPosition>
+                  <ui:Click.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="39df5db5-0dbe-4c09-88ab-44cc8c2e04bd" InformativeScreenshot="b4c7a19d2cbb543213574c7910f0111e" Selector="&lt;webctrl tag='BUTTON' type='submit' /&gt;" WaitForReady="COMPLETE">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                    </ui:Target>
+                  </ui:Click.Target>
+                </ui:Click>
+                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get APR Rate" sap:VirtualizedContainerService.HintSize="359,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                  <ui:GetValue.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a601dc4a-e2e1-4f7b-8739-b94e4d335e75" InformativeScreenshot="a12f250c2f81371c70cd2f77856aa289" Selector="&lt;webctrl id='rateValue' tag='SPAN' /&gt;">
+                      <ui:Target.TimeoutMS>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:Target.TimeoutMS>
+                      <ui:Target.WaitForReady>
+                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                      </ui:Target.WaitForReady>
+                    </ui:Target>
+                  </ui:GetValue.Target>
+                  <ui:GetValue.Value>
+                    <OutArgument x:TypeArguments="x:String">[LoanApr]</OutArgument>
+                  </ui:GetValue.Value>
+                </ui:GetValue>
+              </Sequence>
+            </Sequence>
+          </ActivityAction>
+        </uix:NApplicationCard.Body>
+        <uix:NApplicationCard.TargetApp>
+          <uix:TargetApp BrowserType="Chrome" IconBase64="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" InformativeScreenshot="6e86ce4549fdefa8db7591baa8c30941.png" Selector="&lt;html app='chrome.exe' title='UiBank'/&gt;" Url="https://uibank.uipath.com/" />
+        </uix:NApplicationCard.TargetApp>
+      </uix:NApplicationCard>
+      <If Condition="[LoanApr &lt; &quot;7&quot;]" sap:VirtualizedContainerService.HintSize="797,341" sap2010:WorkflowViewState.IdRef="If_1">
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Pretty Good Loan Rate&quot;]" />
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Meh.. Could've got better APR&quot;]" />
+          </Sequence>
+        </If.Else>
+      </If>
+    </Sequence>
   </Sequence>
 </Activity>

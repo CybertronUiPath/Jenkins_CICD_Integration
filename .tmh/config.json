@@ -1,3 +1,9 @@
 {
-  "issueKeyTestcaseValues": {}
+  "issueKeyTestcaseValues": {},
+  "testManagerBasePath": "https://cloud.uipath.com/cybertron/salesengineer/testmanager_",
+  "defaultProject": {
+    "id": "b30e7f3d-ba04-0000-7395-0b438ba2bd95",
+    "name": "Demo Kits",
+    "key": "DEMO"
+  }
 }

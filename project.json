@@ -13,7 +13,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "20.10.2.0",
-  "projectVersion": "1.1.103574072",
+  "projectVersion": "1.1.106543343",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -43,8 +43,9 @@
     "fileInfoCollection": [
       {
         "editingStatus": "Publishable",
-        "testCaseId": "fe0fed99-d4ef-4973-9c21-28c0e7aceb41",
-        "fileName": "Sample Test Case Jenkins.xaml"
+        "testCaseId": "cba0bdac-b5d5-4426-85ab-bfbc389a21b1",
+        "testCaseType": "TestCase",
+        "fileName": "MyLoanTestCase1.xaml"
       }
     ],
     "modernBehavior": false
